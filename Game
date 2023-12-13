@@ -1,0 +1,70 @@
+public class Game {
+
+    private Player player;
+    private  Monster monster;
+
+    Game(Player player, Monster monster){
+
+        this.player = player;
+        this.monster = monster;
+    }
+
+    public void PlayGame(){
+        System.out.println("***** Game starts ******");
+
+        while (player.PlayerHealth > 0 && monster.GetMonsterHealth() > 0){
+
+            PlayerTurn();
+
+            if (monster.GetMonsterHealth() <= 0){
+
+                System.out.println("Monster was defeated! ");
+
+                break;
+            }
+
+            MonsterTurn();
+
+            if (player.GetPlayerHealth() <= 0){
+
+                System.out.println("Player was defeated!");
+
+                break;
+            }
+
+        }
+
+        System.out.println("***** Game over ******");
+
+    }
+    public void PlayerTurn(){
+
+        System.out.println("It is the player's turn ");
+
+        GetInfo();
+
+        player.PlayerAttacks(monster);
+
+    }
+
+    public void MonsterTurn(){
+
+        System.out.println("It is the monster's turn ");
+
+        GetInfo();
+
+        monster.MonsterAttacks(player);
+
+    }
+
+    public String GetInfo(){
+
+        return ("Player name: " + player.GetPlayerName() + "Player health status: " + player.GetPlayerHealth()
+        + "Monster name: " + monster.GetMonsterName() + "Monster Health: " + monster.GetMonsterHealth());
+    }
+
+
+
+
+
+}
