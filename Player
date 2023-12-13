@@ -1,0 +1,53 @@
+public class Player {
+
+    String PlayerName;
+    int PlayerHealth;
+    int PlayerDamagePoints;
+
+
+    Player(String PlayerName, int PlayerHealth, int PlayerDamagePoints) {
+
+        this.PlayerName = PlayerName;
+        this.PlayerHealth = PlayerHealth;
+        this.PlayerDamagePoints = PlayerDamagePoints;
+
+    }
+
+    public String GetPlayerName() {
+
+    return PlayerName;
+    }
+    public int  GetPlayerHealth(){
+
+        return PlayerHealth;
+    }
+
+    public int GetPlayerDamagePoints(){
+
+        return PlayerDamagePoints;
+    }
+
+    public void PlayerAttacks(Monster monster){
+
+        int Damage = RandomGenerator();
+
+        monster.MonsterHealth -= Damage;
+
+        System.out.println("The damage done was: " + Damage + " Monster health is now: " + monster.MonsterHealth);
+
+    }
+
+    public void PlayerTakesDamage(int TakesDamage){
+
+        PlayerHealth -= TakesDamage;
+
+        System.out.println("Player health after damage: " + PlayerHealth);
+    }
+
+    public int RandomGenerator(){
+
+        return (int) ((Math.random() * PlayerDamagePoints) + 1);
+    }
+
+
+}
