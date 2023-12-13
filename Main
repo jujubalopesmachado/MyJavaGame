@@ -1,0 +1,15 @@
+
+public class Main {
+    public static void main(String[] args) {
+
+
+        Player player = new Player("Billy Butcher" , 100, 50);
+
+        Monster monster = new Monster("Homelander" , 1000, 300);
+
+        Game game = new Game(player, monster);
+
+        game.PlayGame();
+
+    }
+}
